@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import "./style.css";
-
+import Header from "../../components/Header";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
