@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import HeaderFeed from "../../components/HeaderFeed";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
