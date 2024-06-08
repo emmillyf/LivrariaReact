@@ -31,7 +31,7 @@ function Update() {
   useEffect(() => {
     axios
     // app dando erro por conta do mockapi
-      .get(`https://666253c262966e20ef0840ba.mockapi.io/posts/${id}`)
+      .get(`https://666253c262966e20ef0840ba.mockapi.io/publicacao/${id}`)
       .then((response) => {
         reset(response.data)
       })
@@ -48,7 +48,7 @@ function Update() {
 
   const addPost = (data) =>
     axios
-      .put(`https://666253c262966e20ef0840ba.mockapi.io/posts${id}`, data)
+      .put(`https://666253c262966e20ef0840ba.mockapi.io/publicacao/${id}`, data)
       .then(() => {
         console.log("Deu tudo certo");
         navigate("/");

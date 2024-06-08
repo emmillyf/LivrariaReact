@@ -34,7 +34,7 @@ let navigate = useNavigate();
 
   const addPost = (data) =>
     axios
-      .post("https://666253c262966e20ef0840ba.mockapi.io/posts", data)
+      .post("https://666253c262966e20ef0840ba.mockapi.io/publicacao", data)
       .then(() => {
         console.log("Deu tudo certo");
         navigate('/');

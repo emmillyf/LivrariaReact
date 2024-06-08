@@ -9,7 +9,7 @@ function Feed() {
 
   useEffect(() => {
     axios
-      .get("https://665fa6d55425580055b0594f.mockapi.io/posts")
+      .get("https://666253c262966e20ef0840ba.mockapi.io/publicacao")
       .then((response) => {
         setPosts(response.data);
       })
@@ -30,10 +30,13 @@ function Feed() {
             return (
               <div className="card" key={key}>
                 <header>
-                  <h2>{post.titulo}</h2>
+                  <h2>{post.titulolivro}</h2>
                 </header>
                 <div className="line" />
+                <p>{post.autor} </p>
+                <p>{post.titulo} </p>
                 <p>{post.descricao} </p>
+                <p>{post.nota} </p>
                 <div className="btns">
                   <div className="btn-edit">
                     <Link to={`/update/${post.id}`}>
