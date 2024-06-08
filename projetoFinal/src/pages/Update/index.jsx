@@ -30,6 +30,7 @@ function Update() {
 
   useEffect(() => {
     axios
+    // app dando erro por conta do mockapi
       .get(`https://666253c262966e20ef0840ba.mockapi.io/posts/${id}`)
       .then((response) => {
         reset(response.data)
