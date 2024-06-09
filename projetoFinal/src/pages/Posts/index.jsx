@@ -7,24 +7,23 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const validationPost = yup.object().shape({
+  usuario: yup
+    .string()
+    .required("Usuário Obrigatório")
+    .max(100, "Usuário deve ter no máximo 100 caracteres"),
   titulo: yup
     .string()
     .required("Título Obrigatório")
-    .max(40, "precisa ter 40 caracteres no máximo !"),
+    .max(40, "Título deve ter no máximo 40 caracteres"),
   descricao: yup
     .string()
-    .required("Descrição Obrigatório")
-    .max(100, "precisa ter 100 caracteres no máximo !"),
-  nota: yup
-    .number()
-    .required("Nota Obrigatório")
-    .max(10, "a nota maxima é 10"),
-
-     
+    .required("Descrição Obrigatória")
+    .max(100, "Descrição deve ter no máximo 100 caracteres"),
+  nota: yup.number().required("Nota Obrigatória").max(10, "A nota máxima é 10"),
 });
 
 function Posts() {
-let navigate = useNavigate();
+  let navigate = useNavigate();
 
   const {
     register,
@@ -34,10 +33,10 @@ let navigate = useNavigate();
 
   const addPost = (data) =>
     axios
-      .post("https://666253c262966e20ef0840ba.mockapi.io/publicacao", data)
+      .post("http://localhost:8080/publicacao", data)
       .then(() => {
         console.log("Deu tudo certo");
-        navigate('/');
+        navigate("/");
       })
       .catch(() => console.log("Problemas na requisição"));
 
@@ -50,32 +49,30 @@ let navigate = useNavigate();
           <hr />
           <form onSubmit={handleSubmit(addPost)}>
             <div className="fields">
-              
-              <label htmlFor="autor">Autor da postagem</label>
-              <input type="text" id="autor" {...register("autor")} />
-              <p className="error-message">{errors.autor?.message}</p>
+              <label htmlFor="usuario">Usuário da Postagem</label>
+              <input type="text" id="usuario" {...register("usuario")} />
+              <p className="error-message">{errors.usuario?.message}</p>
 
-              <label htmlFor="titulo">Titulo do livro</label>
+              <label htmlFor="titulo">Título do Livro</label>
               <input type="text" id="titulo" {...register("titulo")} />
               <p className="error-message">{errors.titulo?.message}</p>
-              
-              <label htmlFor="descricao">Descrição</label>
-              
 
+              <label htmlFor="descricao">Descrição</label>
               <textarea
                 id="descricao"
                 rows="10"
                 cols="30"
                 type="text"
                 {...register("descricao")}
-              />              
+              />
               <p className="error-message">{errors.descricao?.message}</p>
+
               <label htmlFor="nota">Nota</label>
-              <input type="num" id="nota" {...register("nota")} />
+              <input type="number" id="nota" {...register("nota")} />
               <p className="error-message">{errors.nota?.message}</p>
 
               <div className="btn-post">
-                <button>Enviar</button>
+                <button type="submit">Enviar</button>
               </div>
             </div>
           </form>
@@ -84,4 +81,5 @@ let navigate = useNavigate();
     </div>
   );
 }
+
 export default Posts;

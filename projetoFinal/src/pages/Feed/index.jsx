@@ -9,7 +9,8 @@ function Feed() {
 
   useEffect(() => {
     axios
-      .get("https://666253c262966e20ef0840ba.mockapi.io/publicacao")
+      .get("http://localhost:8080/publicacao")
+      //.get("https://666253c262966e20ef0840ba.mockapi.io/publicacao")
       .then((response) => {
         setPosts(response.data);
       })
@@ -17,8 +18,9 @@ function Feed() {
   }, []);
 
   function deletePost(id) {
-    axios.delete(`https://665fa6d55425580055b0594f.mockapi.io/posts/${id}`);
-    setPosts(posts.filter((post) => post.id != id));
+    axios.delete(`http://localhost:8080/publicacao/${id}`);
+    //axios.delete(`https://665fa6d55425580055b0594f.mockapi.io/posts/${id}`);
+    setPosts(posts.filter((post) => post.id !== id));
   }
 
   return (
@@ -30,13 +32,12 @@ function Feed() {
             return (
               <div className="card" key={key}>
                 <header>
-                  <h2>{post.titulolivro}</h2>
+                  <h2>{post.titulo}</h2>
                 </header>
                 <div className="line" />
-                <p>{post.autor} </p>
-                <p>{post.titulo} </p>
-                <p>{post.descricao} </p>
-                <p>{post.nota} </p>
+                <p>{post.usuario}</p> {/* Nome do usuário sem rótulo */}
+                <p>{post.descricao}</p>
+                <p>{post.nota}</p>
                 <div className="btns">
                   <div className="btn-edit">
                     <Link to={`/update/${post.id}`}>

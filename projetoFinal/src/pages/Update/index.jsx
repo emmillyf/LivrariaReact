@@ -16,39 +16,39 @@ const validationPost = yup.object().shape({
     .string()
     .required("Descrição Obrigatório")
     .max(100, "precisa ter 100 caracteres no máximo !"),
-  nota: yup
-    .number()
-    .required("Nota Obrigatório")
-    .max(10, "a nota maxima é 10"),
-
+  nota: yup.number().required("Nota Obrigatório").max(10, "a nota maxima é 10"),
+  usuario: yup.string().required("Usuário Obrigatório"), // Adicionando validação para o campo usuario
 });
 
 function Update() {
-
-  const {id} = useParams();
+  const { id } = useParams();
   let navigate = useNavigate();
 
   useEffect(() => {
     axios
-    // app dando erro por conta do mockapi
-      .get(`https://666253c262966e20ef0840ba.mockapi.io/publicacao/${id}`)
+      .get(`http://localhost:8080/publicacao/${id}`)
       .then((response) => {
-        reset(response.data)
+        reset(response.data);
       })
       .catch(() => console.log("Erro na requisição!"));
   }, []);
 
-
-
   const {
     register,
     handleSubmit,
-    formState: { errors }, reset
+    formState: { errors },
+    reset,
   } = useForm({ resolver: yupResolver(validationPost) });
 
   const addPost = (data) =>
     axios
-      .put(`https://666253c262966e20ef0840ba.mockapi.io/publicacao/${id}`, data)
+      .put(`http://localhost:8080/publicacao/${id}`, {
+        // Inclua todos os campos, exceto dataCriacao
+        titulo: data.titulo,
+        descricao: data.descricao,
+        nota: data.nota,
+        usuario: data.usuario,
+      })
       .then(() => {
         console.log("Deu tudo certo");
         navigate("/");
@@ -68,7 +68,7 @@ function Update() {
               <p className="error-message">{errors.titulo?.message}</p>
 
               <label htmlFor="descricao">Descrição</label>
-              
+
               <textarea
                 id="descricao"
                 rows="10"
@@ -80,6 +80,10 @@ function Update() {
               <label htmlFor="nota">Nota</label>
               <input type="num" id="nota" {...register("nota")} />
               <p className="error-message">{errors.nota?.message}</p>
+
+              <label htmlFor="usuario">Usuário</label>
+              <input type="text" id="usuario" {...register("usuario")} />
+              <p className="error-message">{errors.usuario?.message}</p>
 
               <div className="btn-post">
                 <button>Enviar</button>
