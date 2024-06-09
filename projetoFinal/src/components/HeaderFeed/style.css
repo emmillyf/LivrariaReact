@@ -1,5 +1,5 @@
 header {
-    background-color: #2F3644;
+    background-color: #79849b;
 }
 
 .container {
@@ -38,6 +38,27 @@ header {
 }
 
 .btn-newPost button:hover {
+    transition: 0.2s;
+    background-color: #bad2ff;
+}
+
+.rankingg button{
+    font-size: 1.2rem;
+    font-family: Heebo;
+    font-weight: 700;
+
+    background-color: #447CE2;
+    border: 0;
+
+    color: #fff;
+
+    padding: 10px 20px;
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.rankingg button:hover {
     transition: 0.2s;
     background-color: #538af0;
 }

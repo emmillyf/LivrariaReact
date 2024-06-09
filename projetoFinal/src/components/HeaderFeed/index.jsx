@@ -15,6 +15,11 @@ function HeaderFeed() {
             <button>Adicionar Novo Post</button>
           </Link>
         </div>
+        <div className="rankingg">
+          <Link to={"/ranking"}>
+          <button>ranking</button>
+          </Link>
+        </div>
       </div>
     </header>
   );
