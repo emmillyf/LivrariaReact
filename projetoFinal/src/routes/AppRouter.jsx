@@ -10,12 +10,12 @@ import Home from "../pages/Home"
 function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Feed />}></Route>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="/feed" element={<Feed />}></Route>
       <Route path="/posts" element={<Post />}></Route>
       <Route path="/update/:id" element={<Update />}></Route>
       <Route path="/more/:id" element={<More />}></Route>
       <Route path="/ranking" element={<Ranking/>}></Route>
-      <Route path="/home" element={<Home/>}></Route>
     </Routes>
   );
 }

@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import LottiePlayer from "../../components/Lottie/Lottieplayer";
 import './style.css';
 
@@ -9,7 +10,9 @@ function Home() {
       <div className="home-container">
         <h1>Livramento</h1>
         <img src="src/assets/pilha-de-livros.png" alt="" className="livros" />
-        <button className="home-button">login</button>         
+        <Link to={`/feed`}>
+        <button className="home-button">Entrar</button>
+        </Link>         
       </div>       
     </div>
   )

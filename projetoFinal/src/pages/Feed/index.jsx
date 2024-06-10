@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import HeaderFeed from "../../components/HeaderFeed";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -25,7 +25,7 @@ function Feed() {
 
   return (
     <div>
-      <HeaderFeed />
+      <Sidebar />
       <main>
         <div className="cards">
           {posts.map((post, key) => {

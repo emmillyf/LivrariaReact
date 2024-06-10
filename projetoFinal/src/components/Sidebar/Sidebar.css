@@ -81,4 +81,33 @@
       opacity: 1;
       visibility: visible;
     }
+
+    button.no-style-change {
+      background-color: #007bff; /* Cor de fundo */
+      color: white; /* Cor do texto */
+      padding: 10px 20px; /* Espaçamento interno */
+      border: none; /* Remove borda padrão */
+      border-radius: 5px; /* Bordas arredondadas */
+      font-size: 16px; /* Tamanho da fonte */
+      cursor: pointer; /* Cursor de ponteiro */
+      transition: background-color 0.3s; /* Transição suave da cor de fundo */
+      text-decoration: none; /* Remove sublinhado */
+    }
+    
+    /* Estilos do botão ao passar o mouse */
+    button.no-style-change:hover {
+      background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    }
+    
+    /* Remover estilos herdados da tag <Link> */
+    a {
+      text-decoration: none; /* Remove sublinhado */
+      color: inherit; /* Mantém a cor do texto atual */
+    }
+    
+    /* Prevenir a alteração de cor de botão */
+    a button.no-style-change {
+      color: white; /* Mantém a cor do texto do botão */
+      background-color: #007bff; /* Mantém a cor de fundo do botão */
+    }
     

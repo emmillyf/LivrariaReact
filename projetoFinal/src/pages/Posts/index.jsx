@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import "./style.css";
-import Header from "../../components/Header";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 const validationPost = yup.object().shape({
   usuario: yup
@@ -42,7 +42,7 @@ function Posts() {
 
   return (
     <div>
-      <Header />
+      <Sidebar />
       <main>
         <div className="card-post">
           <h1>Criar Postagem</h1>

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import Header from "../../components/Header";
 import "./style.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Sidebar from "../../components/Sidebar/Sidebar";
 function More() {
   const [ler, setLer] = useState({});
   const { id } = useParams();
@@ -19,7 +19,7 @@ function More() {
 
   return (
     <div>
-      <Header />
+      <Sidebar />
       <main>
         <div className="cards">
           <div className="card">
