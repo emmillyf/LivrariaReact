@@ -5,7 +5,12 @@ main header {
 .cards .card h2 {
     display: flex;
     flex-wrap: wrap;
-    max-width: 500px;
+    /* max-width: 500px; */
+}
+
+.empt-div{
+    width:300px;
+    
 }
 
 img {
@@ -23,7 +28,7 @@ img {
 
 main .cards{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
 
     margin-top: 1rem;

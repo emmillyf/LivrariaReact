@@ -6,6 +6,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
 
   useEffect(() => {
     axios
@@ -21,12 +23,14 @@ function Feed() {
     axios.delete(`http://localhost:8080/publicacao/${id}`);
     //axios.delete(`https://665fa6d55425580055b0594f.mockapi.io/posts/${id}`);
     setPosts(posts.filter((post) => post.id !== id));
+    
   }
 
   return (
-    <div>
-      <Sidebar />
+    <>
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
       <main>
+      {isOpen ? <div className="empt-div" />: ''}
         <div className="cards">
           {posts.map((post, key) => {
             return (
@@ -60,7 +64,7 @@ function Feed() {
           })}
         </div>
       </main>
-    </div>
+    </>
   );
 }
 

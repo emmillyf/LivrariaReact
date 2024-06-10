@@ -5,6 +5,10 @@ main {
 
     padding: 3rem 0;
 }
+.empt-div{
+    width:300px;
+    
+}
 
 .card-post {
     background-color: #2F3644;
