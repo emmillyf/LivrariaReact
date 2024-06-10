@@ -1,50 +1,49 @@
-import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import "./style.css";
-import Header from "../../components/Header";
+import HeaderFeed from "../../components/HeaderFeed";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
-function Rank() {  
-  const { id } = useParams();
-  let navigate = useNavigate();
-  const [avaliacoes, setAvaliacoes] = useState([]);
-  const { reset } = useForm();
+function Ranking() {
+  const [ranking, setRanking] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/publicacao/${id}`)
+      .get("http://localhost:8080/publicacao")
+      //.get("https://666253c262966e20ef0840ba.mockapi.io/publicacao")
       .then((response) => {
-        reset(response.data);
+        // Extrai apenas o título e a nota dos posts
+        const postsData = response.data.map((post) => ({
+          titulo: post.titulo,
+          nota: post.nota,
+        }));
+        // Ordena os posts pelo valor da nota em ordem decrescente
+        const sortedRanking = postsData.sort((a, b) => b.nota - a.nota);
+        setRanking(sortedRanking);
       })
       .catch(() => console.log("Erro na requisição!"));
- 
+  }, []);
 
-    axios
-    .get(`http://localhost:8080/publicacoes`)
-    .then((response) => {
-      const classificacoes = response.data.sort((a, b) => b.nota - a.nota);
-      setAvaliacoes(classificacoes);
-    })
-    .catch(() => console.log("Erro ao obter as avaliações!"));
-  }, [id]);
-  
   return (
-    <div className="cardsbody">
-      <Header />
-        <div className="rank_card">
+    <div>
+      <HeaderFeed />
+      <main>
+        <div className="cards">
           <h1>Ranking de Livros</h1>
-          <ul>
-              {avaliacoes.map(avaliador => (
-               <li key={avaliador.id}>
-                <h2>{avaliador.titulo}</h2>
-                <p>Nota:{avaliador.nota}</p>
-               </li>
-              ))}
-          </ul>
-      </div>
+          {ranking.map((post, index) => (
+            <div className="card" key={index}>
+              <header>
+                <h2>{post.titulo}</h2>
+              </header>
+              <div className="line" />
+              <p>Nota: {post.nota}</p>
+              
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
 
-export default Rank;
+export default Ranking;
