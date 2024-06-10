@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import HeaderFeed from "../../components/HeaderFeed";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Ranking() {
   const [ranking, setRanking] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     axios
@@ -26,8 +27,9 @@ function Ranking() {
 
   return (
     <div>
-      <HeaderFeed />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
       <main>
+      {isOpen ? <div className="empt-div" />: ''}
         <div className="cards">
           <h1>Ranking de Livros</h1>
           {ranking.map((post, index) => (
