@@ -1,7 +1,7 @@
 
 .cardsbody {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1900ff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,7 +12,7 @@
   
 
   .rank_card {
-    background: #fff;
+    background: #08d101;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,7 @@
   }
   
   .rank_card li {
-    background: #f9f9f9;
+    background: #fbff00;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
