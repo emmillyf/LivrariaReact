@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'EmilysCandy';
+    src: url('src/assets/EmilysCandy-Regular.ttf') format('truetype');
+    
+  }
+  .home-container{
+    background-color: #2F3644;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+    width: 35%; 
+    height: 55%; 
+    border-radius: 20px;
+  
+  } 
+  
+  .home-container {
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    height: 55%; 
+  }
+  
+  .home-container img{
+    z-index: 2;
+    height: 150px;
+    width: 150px;
+    margin: 0;
+    pointer-events: none;
+  }
+  
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.1); 
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .home-button {
+    animation: pulse 1.5s infinite; 
+  } 
+  
+  .home-button{
+    height: 3rem;
+    width: 9rem;
+    margin-top: 50px;
+  
+  
+    font-family: 'EmilysCandy';
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  
+  
+    border-radius: 20px;
+    border-color: #ed6369;
+  
+    color: black;
+  }
+  
+  
+  .home-container h1{
+    font-family: 'EmilysCandy';
+    color: white;
+    display: inline-block;
+    font-size: 4rem;
+    overflow: hidden;
+    border-right: 2px solid;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+    animation-delay: 1s, 0s;
+  }
+  
+    
+  @keyframes typing {
+    from { 
+      width: 0; 
+    }
+    to { 
+      width: 100%; 
+    }
+  }
+  
+  @keyframes blink-caret {
+      from 0%, to { 
+          border-color: transparent; 
+      }
+      50% { 
+          border-color: black; 
+      }
+  }
+  
