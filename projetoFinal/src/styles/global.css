@@ -5,5 +5,8 @@
 }
 body{
     height: 100vh;
-    background-color: #242401;
+    background: linear-gradient(to bottom, #9019f4 69%, #e011f7 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }

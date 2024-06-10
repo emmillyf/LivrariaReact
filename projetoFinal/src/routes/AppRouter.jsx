@@ -5,6 +5,7 @@ import Post from "../pages/Posts";
 import Update from "../pages/Update";
 import More from "../pages/More";
 import Ranking from "../pages/Ranking"
+import Home from "../pages/Home"
 
 function AppRouter() {
   return (
@@ -14,6 +15,7 @@ function AppRouter() {
       <Route path="/update/:id" element={<Update />}></Route>
       <Route path="/more/:id" element={<More />}></Route>
       <Route path="/ranking" element={<Ranking/>}></Route>
+      <Route path="/home" element={<Home/>}></Route>
     </Routes>
   );
 }
