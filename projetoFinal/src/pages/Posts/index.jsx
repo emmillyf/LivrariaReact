@@ -5,6 +5,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import { useState } from "react";
 
 const validationPost = yup.object().shape({
   usuario: yup
@@ -43,9 +44,9 @@ function Posts() {
 
   return (
     <div>
-      {isOpen ? <div className="empt-div" />: ''}
-      <Sidebar />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
       <main>
+        {isOpen ? <div className="empt-div"/> : ''}
         <div className="card-post">
           <h1>Criar Postagem</h1>
           <hr />
