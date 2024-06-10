@@ -3,6 +3,8 @@
     src: url('src/assets/EmilysCandy-Regular.ttf') format('truetype')
   }
   
+  
+
   .sidebar {
       position: fixed;
       top: 0;
@@ -19,6 +21,7 @@
     
     .sidebar.open {
       width: 300px;
+      margin-right: 100px;
     }
     
     .toggle-btn {

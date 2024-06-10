@@ -24,6 +24,7 @@ const validationPost = yup.object().shape({
 
 function Posts() {
   let navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const {
     register,
@@ -42,6 +43,7 @@ function Posts() {
 
   return (
     <div>
+      {isOpen ? <div className="empt-div" />: ''}
       <Sidebar />
       <main>
         <div className="card-post">
