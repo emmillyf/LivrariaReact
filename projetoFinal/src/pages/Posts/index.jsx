@@ -19,7 +19,7 @@ const validationPost = yup.object().shape({
   descricao: yup
     .string()
     .required("Descrição Obrigatória")
-    .max(100, "Descrição deve ter no máximo 100 caracteres"),
+    .max(500, "Descrição deve ter no máximo 100 caracteres"),
   nota: yup.number().required("Nota Obrigatória").min(0).max(10),
 });
 
