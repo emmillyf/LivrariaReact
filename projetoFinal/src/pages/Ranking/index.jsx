@@ -30,16 +30,13 @@ function Ranking() {
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
       <main>
       {isOpen ? <div className="empt-div" />: ''}
-        <div className="cards">
+        <div className="ranks">
           <h1>Ranking de Livros</h1>
           {ranking.map((post, index) => (
-            <div className="card" key={index}>
-              <header>
-                <h2>{post.titulo}</h2>
-              </header>
+            <div className="rank" key={index}>      
+                <h2>{post.titulo}</h2>            
               <div className="line" />
-              <p>Nota: {post.nota}</p>
-              
+              <p><b>Nota: {post.nota}</b></p>    
             </div>
           ))}
         </div>

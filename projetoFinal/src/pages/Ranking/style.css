@@ -1,60 +1,41 @@
+main .ranks{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 
-.cardsbody {
-    font-family: Arial, sans-serif;
-    background-color: #1900ff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .empt-div{
-    width:300px;
-    
+  margin-top: 1rem;
 }
 
-  .rank_card {
-    background: #08d101;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
-    margin: 20px;
-  }
-  
+main .ranks h1{
 
-  .rank_card h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
+  font-family: 'EmilysCandy';
+  src: url('src/assets/EmilysCandy-Regular.ttf') format('truetype');
 
-  .rank_card ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .rank_card li {
-    background: #fbff00;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .rank_card li h2 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #333;
-  }
-  
-  .rank_card li p {
-    margin: 5px 0;
-    color: #666;
-  }
-  
+}
+
+main .rank h2{
+
+  display: flex;
+  justify-content: center;
+
+}
+
+main .ranks .rank {
+  margin: 0 auto;
+  background-color: #FFFACD;
+  padding: 30px 40px;
+  width: 255px;
+  border-radius: 30px;
+  border-style: groove;
+  margin-top: 40px;
+
+}
+
+main .ranks p{
+
+  display: flex;
+  justify-content: center;
+  color: black;
+ 
+
+}
