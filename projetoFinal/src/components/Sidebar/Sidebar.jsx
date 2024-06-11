@@ -9,13 +9,7 @@ import { CgDarkMode } from "react-icons/cg";
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
-const Sidebar = ({isOpen, setIsOpen}) => {
-  // const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -31,52 +25,64 @@ const Sidebar = ({isOpen, setIsOpen}) => {
     setDarkMode(!darkMode);
   };
 
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <div className={`container ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+    <div
+      className={`container ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-        <div className="toggle-btn" onClick={handleToggle}>
-          {isOpen ? <IoIosArrowDropright/> : <IoIosArrowDropleft/>}
+        <div className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <IoIosArrowDropright /> : <IoIosArrowDropleft />}
         </div>
         <h2 className={`sidebar-title ${isOpen ? 'show' : 'hide'}`}>Livramento</h2>
         <div className="menu-item">
           <FaHome className="icon" />
           <Link to={`/`}>
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Home</span>
+            <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Home</span>
           </Link>
         </div>
         <div className="menu-item">
           <CgFeed className="icon" />
           <Link to={`/feed`}>
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Feed</span>
+            <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Feed</span>
           </Link>
         </div>
         <div className="menu-item">
           <IoAddCircleOutline className="icon" />
           <Link to={`/posts`}>
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Adicionar novo Post</span>
+            <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Adicionar novo Post</span>
           </Link>
         </div>
         <div className="menu-item">
           <FaCode className="icon" />
           <Link to={`/Desenvolvedores`} className='no-style-change'>
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Desenvolvedores</span>
+            <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Desenvolvedores</span>
           </Link>
         </div>
         <div className="menu-item">
           <LuTrophy className="icon" />
           <Link to={`/ranking`} className='no-style-change'>
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Ranking</span>
+            <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Ranking</span>
           </Link>
         </div>
         <div className="menu-item">
           <CgDarkMode className="icon" />
           <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>
             <button className='toggle-theme' onClick={toggleTheme}>{darkMode ? "Modo Claro" : "Modo Escuro"}</button>
-            </span>
+          </span>
         </div>
         <div className="logo-container">
-        <img src="src/assets/owlBlack.png" alt="Logo" className={`logo ${isOpen ? 'show' : 'hide'}`} />
-      </div>
+          <img src="src/assets/owlBlack.png" alt="Logo" className={`logo ${isOpen ? 'show' : 'hide'}`} />
+        </div>
       </div>
     </div>
   );
