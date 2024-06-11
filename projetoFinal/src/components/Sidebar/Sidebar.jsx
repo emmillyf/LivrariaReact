@@ -6,7 +6,7 @@ import { LuTrophy } from "react-icons/lu";
 import { CgFeed } from "react-icons/cg";
 import { FaCode } from "react-icons/fa";
 import { CgDarkMode } from "react-icons/cg";
-import './Sidebar.css'; // Certifique-se de que o caminho para o CSS está correto
+import './Sidebar.css'; 
 import { Link } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
