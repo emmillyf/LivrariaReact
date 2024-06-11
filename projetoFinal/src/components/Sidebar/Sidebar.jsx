@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaSearch } from 'react-icons/fa';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/io';
 import { IoAddCircleOutline } from "react-icons/io5";
 import { LuTrophy } from "react-icons/lu";
 import { CgFeed } from "react-icons/cg";
 import { FaCode } from "react-icons/fa";
 import { CgDarkMode } from "react-icons/cg";
-import './Sidebar.css';
+import './Sidebar.css'; // Certifique-se de que o caminho para o CSS está correto
 import { Link } from 'react-router-dom';
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   const [darkMode, setDarkMode] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     // Atualiza a classe do body para aplicar o tema
@@ -33,6 +34,17 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     setIsOpen(false);
   };
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    console.log('Searching for:', searchTerm);
+
+    //  adiciona a lógica de busca 
+    const filtered = publicacoes.filter(publicacao => publicacao.titulo.toString().includes(searchTerm));
+    setFilteredPublicacoes(filtered);
+    console.log('Filtered Publicações:', filtered);
+    
+  };
+
   return (
     <div
       className={`container ${isOpen ? 'sidebar-open' : 'sidebar-closed'}`}
@@ -44,6 +56,21 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           {isOpen ? <IoIosArrowDropright /> : <IoIosArrowDropleft />}
         </div>
         <h2 className={`sidebar-title ${isOpen ? 'show' : 'hide'}`}>Livramento</h2>
+        
+        {/* Caixa de Pesquisa */}
+        <form onSubmit={handleSearch} className="search-form">
+          <input 
+            type="text" 
+            placeholder="Pesquisar..." 
+            value={searchTerm} 
+            onChange={(e) => setSearchTerm(e.target.value)} 
+            className={`search-input ${isOpen ? 'show' : 'hide'}`} 
+          />
+          <button type="submit" className="search-button">
+            <FaSearch className="search-icon" />
+          </button>
+        </form>
+
         <div className="menu-item">
           <FaHome className="icon" />
           <Link to={`/`}>
