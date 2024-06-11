@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
+
 function Feed() {
   const [posts, setPosts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);

@@ -29,6 +29,7 @@ function Ranking() {
     <div>
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
       <main>
+        <div className="fundo">
       {isOpen ? <div className="empt-div" />: ''}
         <div className="ranks">
           <h1>Ranking de Livros</h1>
@@ -40,6 +41,7 @@ function Ranking() {
             </div>
           ))}
         </div>
+      </div>
       </main>
     </div>
   );
