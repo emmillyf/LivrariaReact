@@ -5,7 +5,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const validationPost = yup.object().shape({
   usuario: yup
@@ -40,7 +40,8 @@ function Posts() {
         console.log("Deu tudo certo");
         navigate("/feed"); 
       })
-      .catch(() => console.log("Problemas na requisição"));
+      .catch(() => console.log("Problemas na requisição"));    
+      
 
   return (
     <div>

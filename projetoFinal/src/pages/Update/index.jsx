@@ -25,6 +25,7 @@ function Update() {
   let navigate = useNavigate();
 
   useEffect(() => {
+    console.log (id)
     axios
       .get(`http://localhost:8080/publicacao/${id}`)
       .then((response) => {
