@@ -38,7 +38,7 @@ function Posts() {
       .post("http://localhost:8080/publicacao", data)
       .then(() => {
         console.log("Deu tudo certo");
-        navigate("/");
+        navigate("/feed"); 
       })
       .catch(() => console.log("Problemas na requisição"));
 

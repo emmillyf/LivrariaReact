@@ -8,60 +8,53 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-
   useEffect(() => {
     axios
       .get("http://localhost:8080/publicacao")
-      //.get("https://666253c262966e20ef0840ba.mockapi.io/publicacao")
       .then((response) => {
-        setPosts(response.data);
+        // Ordenar as postagens pelo ID de forma decrescente (do maior para o menor)
+        const sortedPosts = response.data.sort((a, b) => b.id - a.id);
+        setPosts(sortedPosts);
       })
-      .catch(() => console.log("Erro na requisição!"));
+      .catch((error) => console.error("Erro na requisição:", error));
   }, []);
 
   function deletePost(id) {
-    axios.delete(`http://localhost:8080/publicacao/${id}`);
-    //axios.delete(`https://665fa6d55425580055b0594f.mockapi.io/posts/${id}`);
-    setPosts(posts.filter((post) => post.id !== id));
-    
+    axios
+      .delete(`http://localhost:8080/publicacao/${id}`)
+      .then(() => {
+        setPosts(posts.filter((post) => post.id !== id));
+      })
+      .catch((error) => console.error("Erro ao apagar o post:", error));
   }
 
   return (
     <>
-      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <main>
-      {isOpen ? <div className="empt-div" />: ''}
+        {isOpen ? <div className="empt-div" /> : ""}
         <div className="cards">
-          {posts.map((post, key) => {
-            return (
-              <div className="card" key={key}>
-                <header>
-                  <h2>{post.titulo}</h2>
-                </header>
-                <div className="line" />
-                <p>{post.usuario}</p> {/* Nome do usuário sem rótulo */}
-                <p>{post.descricao}</p>
-                <p>{post.nota}</p>
-                <div className="btns">
-                  <div className="btn-edit">
-                    <Link to={`/update/${post.id}`}>
-                      <button>Editar</button>
-                    </Link>
-                  </div>
-
-                  <div className="btn-readmore">
-                    <Link to={`/more/${post.id}`}>
-                      <button>Ler mais</button>
-                    </Link>
-                  </div>
-
-                  <div className="btn-delete">
-                    <button onClick={() => deletePost(post.id)}>Apagar</button>
-                  </div>
+          {posts.map((post) => (
+            <div className="card" key={post.id}>
+              <header>
+                <h2>{post.titulo}</h2>
+              </header>
+              <div className="line" />
+              <p>{post.usuario}</p> {/* Nome do usuário sem rótulo */}
+              <p>{post.descricao}</p>
+              <p>{post.nota}</p>
+              <div className="btns">
+                <div className="btn-edit">
+                  <Link to={`/update/${post.id}`}>
+                    <button>Editar</button>
+                  </Link>
+                </div>
+                <div className="btn-delete">
+                  <button onClick={() => deletePost(post.id)}>Apagar</button>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </main>
     </>

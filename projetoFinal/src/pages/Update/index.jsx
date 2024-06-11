@@ -51,7 +51,7 @@ function Update() {
       })
       .then(() => {
         console.log("Deu tudo certo");
-        navigate("/");
+        navigate("/feed");
       })
       .catch(() => console.log("Problemas na requisição"));
   return (
