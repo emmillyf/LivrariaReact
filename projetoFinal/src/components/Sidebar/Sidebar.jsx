@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaHome } from 'react-icons/fa';
 import { IoIosArrowDropright, IoIosArrowDropleft } from 'react-icons/io';
 import { IoAddCircleOutline } from "react-icons/io5";
@@ -14,6 +14,21 @@ const Sidebar = ({isOpen, setIsOpen}) => {
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
+  };
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Atualiza a classe do body para aplicar o tema
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
   };
 
   return (
@@ -55,7 +70,9 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         </div>
         <div className="menu-item">
           <CgDarkMode className="icon" />
-          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}><button>Tema</button></span>
+          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>
+            <button className='toggle-theme' onClick={toggleTheme}>{darkMode ? "Modo Claro" : "Modo Escuro"}</button>
+            </span>
         </div>
         <div className="logo-container">
         <img src="src/assets/owlBlack.png" alt="Logo" className={`logo ${isOpen ? 'show' : 'hide'}`} />
