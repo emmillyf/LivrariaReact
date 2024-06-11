@@ -1,3 +1,8 @@
+.empt-div{
+  width:300px;
+  /* referente a sidebar!! */
+}
+
 main .ranks{
   display: flex;
   justify-content: center;

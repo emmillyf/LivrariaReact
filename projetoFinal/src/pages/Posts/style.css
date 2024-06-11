@@ -11,17 +11,17 @@ main {
 }
 
 .card-post {
-    background-color: #2F3644;
+    background-color: rgba(245, 245, 245, 0.600);
     padding: 30px 70px;
     border-radius: 15px;
 }
 
 .card-post h1{
     font-family: Heebo;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
 
-    color: #D2DAF5;
+    color: black;
 
     font-size: 3rem;
     margin-bottom: 5px;
@@ -29,7 +29,7 @@ main {
 
 .line-post {
     height: 2px;
-    background-color: #3E445B;
+    background-color:black;
 }
 
 .card-body-post {
@@ -45,8 +45,9 @@ label {
     display: block;
     margin-bottom: 7px;
     font-size: 1.2rem;
+    font-weight: 500;
 
-    color: #D2DAF5;
+    color: black;
 
     font-family: Poppins;
 }
@@ -56,6 +57,7 @@ input, textarea {
     border-radius: 10px;
     border: 0;
     outline: 0;
+    background-color: rgba(255, 255, 255, 0.600);
 
     font-size: 1.2rem;
 
@@ -85,8 +87,8 @@ textarea {
     font-size: 1.3rem;
 
     padding: 5px 50px;
-    color: #fff;
-    background-color: #3DECB1;
+    color: black;
+    background-color: #80D8FF;
 
     border: 0;
     border-radius: 10px;

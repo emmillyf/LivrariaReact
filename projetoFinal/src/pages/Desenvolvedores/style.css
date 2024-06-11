@@ -1,3 +1,7 @@
+.empt-div{
+    width:300px;
+}
+
 .sobre-container {
     display: flex;
     flex-direction: column;
@@ -78,3 +82,12 @@
 .circle-card:hover .back {
     transform: rotateY(0deg);
 }
+
+.sobre-container.sidebar-open {
+    margin-left: 300px; /* Ajuste o valor conforme a largura da sidebar */
+  }
+  
+  .circle-container1.sidebar-open .circle-card:last-child {
+    width: 100%; /* Faz o último card ocupar a linha toda */
+    order: 1; /* Move o último card para a próxima linha */
+  }

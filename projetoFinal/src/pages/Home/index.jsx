@@ -9,7 +9,7 @@ function Home() {
       <LottiePlayer />
       <div className="home-container">
         <h1>Livramento</h1>
-        <img src="src/assets/pilha-de-livros.png" alt="" className="livros" />
+        <img src="src/assets/owlBlack.png" alt="" className="livros" />
         <Link to={`/feed`}>
         <button className="home-button">Entrar</button>
         </Link>         

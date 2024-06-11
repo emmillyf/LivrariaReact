@@ -5,6 +5,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { LuTrophy } from "react-icons/lu";
 import { CgFeed } from "react-icons/cg";
 import { FaCode } from "react-icons/fa";
+import { CgDarkMode } from "react-icons/cg";
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
@@ -52,6 +53,13 @@ const Sidebar = ({isOpen, setIsOpen}) => {
           <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Ranking</span>
           </Link>
         </div>
+        <div className="menu-item">
+          <CgDarkMode className="icon" />
+          <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}><button>Tema</button></span>
+        </div>
+        <div className="logo-container">
+        <img src="src/assets/owlBlack.png" alt="Logo" className={`logo ${isOpen ? 'show' : 'hide'}`} />
+      </div>
       </div>
     </div>
   );
