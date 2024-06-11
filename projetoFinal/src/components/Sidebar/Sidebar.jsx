@@ -42,7 +42,7 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         </div>
         <div className="menu-item">
           <FaCode className="icon" />
-          <Link to={`/sobre`} className='no-style-change'>
+          <Link to={`/Desenvolvedores`} className='no-style-change'>
           <span className={`menu-text ${isOpen ? 'show' : 'hide'}`}>Desenvolvedores</span>
           </Link>
         </div>
