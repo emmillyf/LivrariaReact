@@ -88,6 +88,6 @@
   }
   
   .circle-container1.sidebar-open .circle-card:last-child {
-    width: 100%; /* Faz o último card ocupar a linha toda */
+    width: 200px; /* Faz o último card ocupar a linha toda */
     order: 1; /* Move o último card para a próxima linha */
   }

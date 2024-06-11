@@ -58,7 +58,7 @@ function Desenvolvedores() {
             </div>
             <div className="circle-card">
               <div className="front">
-                <img src="src/assets/FotoVittorio.jpeg" />
+                <img src="src/assets/fotoVittorio.jpeg" />
               </div>
               <div className="back">
                 <p>
