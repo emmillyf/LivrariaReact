@@ -52,4 +52,8 @@ Turma 18
 - CSS3
 
 ## 👀 Autores
-  
+  - Matheus Adriano - [MatheusARodrigues](https://github.com/MatheusARodrigues)
+  - Renato - [renatocrachmad](https://github.com/renatocrachmad)
+  - Vittorio Fassano - [vittorioFassano](https://github.com/vittorioFassano)
+  - Emmilly Gomes - [emmillyf](https://github.com/emmillyf)
+
